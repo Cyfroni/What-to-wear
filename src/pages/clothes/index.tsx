@@ -5,7 +5,9 @@ import Image from "next/image";
 import { trpc } from "../../utils/trpc";
 
 const Clothes: NextPage = () => {
-  const { data: set } = trpc.clothes.getRandomSet.useQuery();
+  const { data: set, error } = trpc.clothes.getRandomSet.useQuery();
+
+  if (error) return <div>{error.message}</div>;
 
   return (
     <>
@@ -33,13 +35,10 @@ export default Clothes;
 
 const ClothesElem: React.FC<{ clothes?: Clothes }> = ({ clothes }) => {
   if (!clothes) return <></>;
-  console.log(clothes);
   return (
     <>
       <Image
         src={clothes.image}
-        // src={"/top-1.jpg"}
-        // src={'./public/top-1.jpg'}
         alt="Picture of the author"
         width={100}
         height={100}
