@@ -1,6 +1,4 @@
-import { z } from "zod";
-
-import { router, publicProcedure, protectedProcedure } from "../trpc";
+import { protectedProcedure, router } from "../trpc";
 
 function randItem(array: any[]) {
   const ind = Math.floor(Math.random() * array.length);
@@ -8,13 +6,6 @@ function randItem(array: any[]) {
 }
 
 export const clothesRouter = router({
-  hello: publicProcedure
-    .input(z.object({ text: z.string().nullish() }).nullish())
-    .query(({ input }) => {
-      return {
-        greeting: `Hello ${input?.text ?? "world"}`,
-      };
-    }),
   getRandomSet: protectedProcedure.query(async ({ ctx }) => {
     const clothes = await ctx.prisma.clothes.findMany();
     const randHat = clothes.filter((c) => c.type === "Hat");
