@@ -3,11 +3,11 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient({ log: ["query"] });
 
 async function main() {
-  const values = await prisma.example.findMany({
-    include: {
-      subExample: true,
-    },
-  });
+  // const values = await prisma.example.findMany({
+  //   include: {
+  //     subExample: true,
+  //   },
+  // });
   // const values = await prisma.example.create({
   //   data: {
   //     subExample: {
@@ -20,8 +20,7 @@ async function main() {
   //     subExample: true,
   //   },
   // });
-
-  console.log(values);
+  // console.log(values);
 }
 
 main()
