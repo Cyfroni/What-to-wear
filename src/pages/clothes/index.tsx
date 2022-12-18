@@ -10,24 +10,22 @@ const Clothes: NextPage = () => {
   if (error) return <div>{error.message}</div>;
 
   return (
-    <>
-      <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
-        <ul>
-          <li>
-            <ClothesElem clothes={set?.hat}></ClothesElem>
-          </li>
-          <li>
-            <ClothesElem clothes={set?.top}></ClothesElem>
-          </li>
-          <li>
-            <ClothesElem clothes={set?.bottom}></ClothesElem>
-          </li>
-          <li>
-            <ClothesElem clothes={set?.shoes}></ClothesElem>
-          </li>
-        </ul>
-      </main>
-    </>
+    <main className="flex items-center justify-center">
+      <ul className="flex flex-col gap-4">
+        <li>
+          <ClothesElem clothes={set?.hat}></ClothesElem>
+        </li>
+        <li>
+          <ClothesElem clothes={set?.top}></ClothesElem>
+        </li>
+        <li>
+          <ClothesElem clothes={set?.bottom}></ClothesElem>
+        </li>
+        <li>
+          <ClothesElem clothes={set?.shoes}></ClothesElem>
+        </li>
+      </ul>
+    </main>
   );
 };
 

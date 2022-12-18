@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  main {
+    @apply min-h-screen bg-cyan-50 pt-16;
+  }
+}
